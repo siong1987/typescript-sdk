@@ -32,6 +32,19 @@ test("Input & Output tokens have same scale", () => {
   );
 });
 
+test("Input & Output tokens have same scale for input", () => {
+  const params = Builder<QuotePoolParams>(stableQuotePoolParams).build();
+
+  const quote = builder.buildQuote(
+    params,
+    DecimalUtil.toU64(new Decimal(1e6), params.inputToken.scale)
+  );
+
+  expect(quote.getExpectedInputAmount()).toEqual(
+    new OrcaU64(new u64("1001302382835"), params.outputToken.scale)
+  );
+});
+
 test("Input trade amount equal 0 ", () => {
   const params = Builder<QuotePoolParams>(stableQuotePoolParams).build();
 

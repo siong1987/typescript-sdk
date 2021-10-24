@@ -209,6 +209,12 @@ export type Quote = {
   getPriceImpact: () => Decimal;
 
   /**
+   * Returns the expected amount of input tokens returned if this exchange is transacted. Fees applied.
+   * @return a function to return the expected amount of input tokens returned if this exchange is transacted
+   */
+  getExpectedInputAmount: () => OrcaU64;
+
+  /**
    * Returns the expected amount of output tokens returned if this exchange is transacted. Fees applied.
    * @return a function to return the expected amount of output tokens returned if this exchange is transacted
    */

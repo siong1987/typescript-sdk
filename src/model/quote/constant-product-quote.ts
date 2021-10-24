@@ -1,4 +1,5 @@
 import { u64 } from "@solana/spl-token";
+import BN from "bn.js";
 import Decimal from "decimal.js";
 import { solToken } from "../../constants/tokens";
 import { ZERO, DecimalUtil, U64Utils, OrcaU64, Quote } from "../../public";
@@ -42,6 +43,17 @@ function getPriceImpact(inputTradeAmount: u64, params: QuotePoolParams): Decimal
   return impact.mul(100).toDecimalPlaces(params.outputToken.scale);
 }
 
+function addExtraLPFees(outputTradeAmount: u64, params: QuotePoolParams): u64 {
+  const { feeStructure } = params;
+  const dust = new u64(1000000000000);
+
+  const denominator = dust
+    .sub(feeStructure.traderFee.numerator.mul(dust).div(feeStructure.traderFee.denominator))
+    .sub(feeStructure.ownerFee.numerator.mul(dust).div(feeStructure.ownerFee.denominator));
+
+  return new u64(outputTradeAmount.mul(dust).div(denominator).toString());
+}
+
 function getLPFees(inputTradeAmount: u64, params: QuotePoolParams): u64 {
   const { feeStructure } = params;
   const tradingFee = inputTradeAmount
@@ -53,6 +65,11 @@ function getLPFees(inputTradeAmount: u64, params: QuotePoolParams): u64 {
     .div(feeStructure.ownerFee.denominator);
 
   return new u64(tradingFee.add(ownerFee).toString());
+}
+
+function getExpectedInputAmount(outputTradeAmount: u64, params: QuotePoolParams): u64 {
+  const newInputAmount = getInputAmount(outputTradeAmount, params);
+  return addExtraLPFees(newInputAmount, params);
 }
 
 function getExpectedOutputAmount(inputTradeAmount: u64, params: QuotePoolParams): u64 {
@@ -99,6 +116,24 @@ function getOutputAmount(inputTradeAmount: u64, params: QuotePoolParams): u64 {
   return new u64(outputAmount.toString());
 }
 
+// Note: This function matches the calculation done on SERUM and on Web UI.
+// Given k = currInputTokenCount * currOutputTokenCount and k = newInputTokenCount * newOutputTokenCount,
+// solve for newInputTokenCount
+function getInputAmount(outputTradeAmount: u64, params: QuotePoolParams): u64 {
+  const [poolInputAmount, poolOutputAmount] = [params.inputTokenCount, params.outputTokenCount];
+
+  const invariant = poolInputAmount.mul(poolOutputAmount);
+
+  const [newPoolInputAmount] = U64Utils.ceilingDivision(
+    invariant,
+    poolOutputAmount.add(outputTradeAmount)
+  );
+
+  const inputAmount = poolInputAmount.sub(newPoolInputAmount);
+
+  return new u64(inputAmount.toString());
+}
+
 function getNetworkFees(params: QuotePoolParams) {
   let numSigs;
   if (params.inputToken === solToken || params.outputToken === solToken) {
@@ -118,6 +153,8 @@ export class ConstantProductPoolQuoteBuilder {
       getLPFees: () =>
         OrcaU64.fromU64(getLPFees(inputTradeAmount, params), params.inputToken.scale),
       getNetworkFees: () => OrcaU64.fromNumber(getNetworkFees(params)),
+      getExpectedInputAmount: () =>
+        OrcaU64.fromU64(getExpectedInputAmount(inputTradeAmount, params), params.inputToken.scale),
       getExpectedOutputAmount: () =>
         OrcaU64.fromU64(
           getExpectedOutputAmount(inputTradeAmount, params),

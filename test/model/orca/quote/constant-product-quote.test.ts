@@ -36,6 +36,19 @@ test("Input & Output tokens have different scale", () => {
   );
 });
 
+test("Input & Output tokens have different scale for input", () => {
+  const params = Builder<QuotePoolParams>(defaultQuotePoolParams).build();
+
+  const quote = builder.buildQuote(
+    params,
+    DecimalUtil.toU64(new Decimal(241.755364), params.outputToken.scale)
+  );
+
+  expect(quote.getExpectedInputAmount()).toEqual(
+    new OrcaU64(new u64("9992790676"), params.inputToken.scale)
+  );
+});
+
 test("Input & Output tokens have the same scale", () => {
   const usdcTokenWithSameScale = Builder<OrcaToken>(Token.usdcToken)
     .scale(Token.solToken.scale)
@@ -59,6 +72,25 @@ test("Input & Output tokens have the same scale", () => {
   );
   expect(quote.getExpectedOutputAmount()).toEqual(
     new OrcaU64(new u64("241755364042"), params.outputToken.scale)
+  );
+});
+
+test("Input & Output tokens have the same scale for input", () => {
+  const usdcTokenWithSameScale = Builder<OrcaToken>(Token.usdcToken)
+    .scale(Token.solToken.scale)
+    .build();
+  const params = Builder<QuotePoolParams>(defaultQuotePoolParams)
+    .outputTokenCount(new u64("670432580208000"))
+    .outputToken(usdcTokenWithSameScale)
+    .build();
+
+  const quote = builder.buildQuote(
+    params,
+    DecimalUtil.toU64(new Decimal(241.755364), params.outputToken.scale)
+  );
+
+  expect(quote.getExpectedInputAmount()).toEqual(
+    new OrcaU64(new u64("9992790676"), params.inputToken.scale)
   );
 });
 

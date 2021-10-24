@@ -1,6 +1,10 @@
 import { u64 } from "@solana/spl-token";
 import Decimal from "decimal.js";
-import { computeBaseOutputAmount, computeOutputAmount } from "@orca-so/stablecurve";
+import {
+  computeBaseOutputAmount,
+  computeOutputAmount,
+  computeInputAmount,
+} from "@orca-so/stablecurve";
 import { QuotePoolParams } from "./quote-builder";
 import { DecimalUtil, OrcaU64, Quote, ZERO } from "../../public";
 import { solToken } from "../../constants/tokens";
@@ -22,6 +26,16 @@ function getOutputAmountWithNoSlippage(
   return computeBaseOutputAmount(inputTradeAmountLessFees, poolInputAmount, poolOutputAmount, amp);
 }
 
+function getInputAmount(outputTradeAmount: u64, params: QuotePoolParams): u64 {
+  const [poolInputAmount, poolOutputAmount, amp] = [
+    params.inputTokenCount,
+    params.outputTokenCount,
+    params.amp!,
+  ];
+
+  return computeInputAmount(outputTradeAmount, poolInputAmount, poolOutputAmount, amp);
+}
+
 function getOutputAmount(inputTradeAmountLessFees: u64, params: QuotePoolParams): u64 {
   const [poolInputAmount, poolOutputAmount, amp] = [
     params.inputTokenCount,
@@ -39,6 +53,11 @@ function getExpectedOutputAmountWithNoSlippage(
   const inputTradeAmountLessFees = getInputAmountLessFees(inputTradeAmount, params);
 
   return getOutputAmountWithNoSlippage(inputTradeAmountLessFees, params);
+}
+
+function getExpectedInputAmount(outputTradeAmount: u64, params: QuotePoolParams): u64 {
+  const newInputAmount = getInputAmount(outputTradeAmount, params);
+  return addExtraLPFees(newInputAmount, params);
 }
 
 function getExpectedOutputAmount(inputTradeAmount: u64, params: QuotePoolParams): u64 {
@@ -78,6 +97,27 @@ function getPriceImpact(inputTradeAmount: u64, params: QuotePoolParams): Decimal
 
   const impact = noSlippageOutputCount.sub(outputCount).div(noSlippageOutputCount);
   return impact.mul(100).toDecimalPlaces(params.outputToken.scale);
+}
+
+function addExtraLPFees(outputTradeAmount: u64, params: QuotePoolParams): u64 {
+  const { feeStructure } = params;
+  const dust = new u64(1000000000000);
+
+  let denominator = dust;
+
+  if (feeStructure.traderFee.numerator !== ZERO) {
+    denominator = denominator.sub(
+      feeStructure.traderFee.numerator.mul(dust).div(feeStructure.traderFee.denominator)
+    );
+  }
+
+  if (feeStructure.ownerFee.numerator !== ZERO) {
+    denominator = denominator.sub(
+      feeStructure.ownerFee.numerator.mul(dust).div(feeStructure.ownerFee.denominator)
+    );
+  }
+
+  return new u64(outputTradeAmount.mul(dust).div(denominator).toString());
 }
 
 function getLPFees(inputTradeAmount: u64, params: QuotePoolParams): u64 {
@@ -133,6 +173,8 @@ export class StablePoolQuoteBuilder {
       getLPFees: () =>
         OrcaU64.fromU64(getLPFees(inputTradeAmount, params), params.inputToken.scale),
       getNetworkFees: () => OrcaU64.fromNumber(getNetworkFees(params)),
+      getExpectedInputAmount: () =>
+        OrcaU64.fromU64(getExpectedInputAmount(inputTradeAmount, params), params.inputToken.scale),
       getExpectedOutputAmount: () =>
         OrcaU64.fromU64(
           getExpectedOutputAmount(inputTradeAmount, params),
