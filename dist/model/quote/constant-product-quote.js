@@ -90,12 +90,12 @@ function getOutputAmount(inputTradeAmount, params) {
 // Note: This function matches the calculation done on SERUM and on Web UI.
 // Given k = currInputTokenCount * currOutputTokenCount and k = newInputTokenCount * newOutputTokenCount,
 // solve for newInputTokenCount
-function getInputAmount(outputTradeAmount, params) {
+function getInputAmount(inputTradeAmount, params) {
     const [poolInputAmount, poolOutputAmount] = [params.inputTokenCount, params.outputTokenCount];
     const invariant = poolInputAmount.mul(poolOutputAmount);
-    const [newPoolInputAmount] = public_1.U64Utils.ceilingDivision(invariant, poolOutputAmount.add(outputTradeAmount));
-    const inputAmount = poolInputAmount.sub(newPoolInputAmount);
-    return new spl_token_1.u64(inputAmount.toString());
+    const [newPoolOutputAmount] = public_1.U64Utils.ceilingDivision(invariant, poolInputAmount.sub(inputTradeAmount));
+    const outputAmount = newPoolOutputAmount.sub(poolOutputAmount);
+    return new spl_token_1.u64(outputAmount.toString());
 }
 function getNetworkFees(params) {
     let numSigs;
@@ -114,7 +114,7 @@ class ConstantProductPoolQuoteBuilder {
             getPriceImpact: () => getPriceImpact(inputTradeAmount, params),
             getLPFees: () => public_1.OrcaU64.fromU64(getLPFees(inputTradeAmount, params), params.inputToken.scale),
             getNetworkFees: () => public_1.OrcaU64.fromNumber(getNetworkFees(params)),
-            getExpectedInputAmount: () => public_1.OrcaU64.fromU64(getExpectedInputAmount(inputTradeAmount, params), params.inputToken.scale),
+            getExpectedInputAmount: () => public_1.OrcaU64.fromU64(getExpectedInputAmount(inputTradeAmount, params), params.outputToken.scale),
             getExpectedOutputAmount: () => public_1.OrcaU64.fromU64(getExpectedOutputAmount(inputTradeAmount, params), params.outputToken.scale),
             getMinOutputAmount: () => public_1.OrcaU64.fromU64(getMinimumAmountOut(inputTradeAmount, params), params.outputToken.scale),
         };
