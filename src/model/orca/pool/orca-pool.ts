@@ -105,17 +105,13 @@ export class OrcaPoolImpl implements OrcaPool {
       outputPoolToken
     );
 
-    const {
-      value: { feeCalculator },
-    } = await this.connection.getRecentBlockhashAndContext("singleGossip");
-
     const quoteParams: QuotePoolParams = {
       ...poolTokenCount,
       inputToken: inputPoolToken,
       outputToken: outputPoolToken,
       feeStructure: feeStructure,
       slippageTolerance: slippageTolerance,
-      lamportsPerSignature: feeCalculator.lamportsPerSignature,
+      lamportsPerSignature: 5000,
       amp: this.poolParams.amp !== undefined ? new u64(this.poolParams.amp) : undefined,
     };
 
