@@ -72,8 +72,7 @@ class OrcaPoolImpl {
             const { inputPoolToken, outputPoolToken } = (0, public_1.getTokens)(this.poolParams, inputToken.mint.toString());
             const inputAmountU64 = public_1.U64Utils.toTokenU64(inputAmount, inputPoolToken, "inputAmount");
             const poolTokenCount = yield (0, public_1.getTokenCount)(this.connection, this.poolParams, inputPoolToken, outputPoolToken);
-            const { value: { feeCalculator }, } = yield this.connection.getRecentBlockhashAndContext("singleGossip");
-            const quoteParams = Object.assign(Object.assign({}, poolTokenCount), { inputToken: inputPoolToken, outputToken: outputPoolToken, feeStructure: feeStructure, slippageTolerance: slippageTolerance, lamportsPerSignature: feeCalculator.lamportsPerSignature, amp: this.poolParams.amp !== undefined ? new spl_token_1.u64(this.poolParams.amp) : undefined });
+            const quoteParams = Object.assign(Object.assign({}, poolTokenCount), { inputToken: inputPoolToken, outputToken: outputPoolToken, feeStructure: feeStructure, slippageTolerance: slippageTolerance, lamportsPerSignature: 5000, amp: this.poolParams.amp !== undefined ? new spl_token_1.u64(this.poolParams.amp) : undefined });
             const quoteBuilder = quote_builder_1.QuoteBuilderFactory.getBuilder(this.poolParams.curveType);
             const quote = quoteBuilder === null || quoteBuilder === void 0 ? void 0 : quoteBuilder.buildQuote(quoteParams, inputAmountU64);
             if (quote == undefined) {
