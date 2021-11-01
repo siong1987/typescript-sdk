@@ -41,7 +41,7 @@ test("Input & Output tokens have same scale for input", () => {
   );
 
   expect(quote.getExpectedInputAmount()).toEqual(
-    new OrcaU64(new u64("1001302382835"), params.outputToken.scale)
+    new OrcaU64(new u64("1001109066357"), params.outputToken.scale)
   );
 });
 

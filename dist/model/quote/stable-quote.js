@@ -22,8 +22,8 @@ function getOutputAmountWithNoSlippage(inputTradeAmountLessFees, params) {
 }
 function getInputAmount(outputTradeAmount, params) {
     const [poolInputAmount, poolOutputAmount, amp] = [
-        params.inputTokenCount,
         params.outputTokenCount,
+        params.inputTokenCount,
         params.amp,
     ];
     return (0, stablecurve_1.computeInputAmount)(outputTradeAmount, poolInputAmount, poolOutputAmount, amp);

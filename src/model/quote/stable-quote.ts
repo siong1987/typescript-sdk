@@ -28,8 +28,8 @@ function getOutputAmountWithNoSlippage(
 
 function getInputAmount(outputTradeAmount: u64, params: QuotePoolParams): u64 {
   const [poolInputAmount, poolOutputAmount, amp] = [
-    params.inputTokenCount,
     params.outputTokenCount,
+    params.inputTokenCount,
     params.amp!,
   ];
 
@@ -116,7 +116,6 @@ function addExtraLPFees(outputTradeAmount: u64, params: QuotePoolParams): u64 {
       feeStructure.ownerFee.numerator.mul(dust).div(feeStructure.ownerFee.denominator)
     );
   }
-
   return new u64(outputTradeAmount.mul(dust).div(denominator).toString());
 }
 
