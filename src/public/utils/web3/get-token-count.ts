@@ -1,4 +1,4 @@
-import { u64 } from "@solana/spl-token";
+import { AccountInfo, u64 } from "@solana/spl-token";
 import { Connection } from "@solana/web3.js";
 import { OrcaPoolToken } from "../..";
 import { OrcaPoolParams } from "../../../model/orca/pool/pool-types";
@@ -13,7 +13,9 @@ export async function getTokenCount(
   connection: Connection,
   poolParams: OrcaPoolParams,
   inputPoolToken: OrcaPoolToken,
-  outputPoolToken: OrcaPoolToken
+  outputPoolToken: OrcaPoolToken,
+  inputAccountInfo?: AccountInfo,
+  outputAccountInfo?: AccountInfo
 ): Promise<PoolTokenCount> {
   if (poolParams.tokens[inputPoolToken.mint.toString()] == undefined) {
     throw new Error("Input token not part of pool");
@@ -21,6 +23,13 @@ export async function getTokenCount(
 
   if (poolParams.tokens[outputPoolToken.mint.toString()] == undefined) {
     throw new Error("Output token not part of pool");
+  }
+
+  if (inputAccountInfo && outputAccountInfo) {
+    return {
+      inputTokenCount: new u64(inputAccountInfo.amount),
+      outputTokenCount: new u64(outputAccountInfo.amount),
+    };
   }
 
   const accountInfos = await connection.getMultipleAccountsInfo([

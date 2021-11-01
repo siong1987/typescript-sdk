@@ -1,4 +1,4 @@
-import { u64 } from "@solana/spl-token";
+import { AccountInfo, u64 } from "@solana/spl-token";
 import { Connection, PublicKey, Keypair } from "@solana/web3.js";
 import Decimal from "decimal.js";
 import { defaultSlippagePercentage } from "../../../constants/orca-defaults";
@@ -85,7 +85,8 @@ export class OrcaPoolImpl implements OrcaPool {
   public async getQuote(
     inputToken: OrcaToken,
     inputAmount: Decimal | OrcaU64,
-    slippage?: Decimal
+    slippage?: Decimal,
+    mapping?: Map<string, AccountInfo>
   ): Promise<Quote> {
     const slippageTolerance =
       slippage === undefined ? defaultSlippagePercentage : Percentage.fromDecimal(slippage);
@@ -102,7 +103,9 @@ export class OrcaPoolImpl implements OrcaPool {
       this.connection,
       this.poolParams,
       inputPoolToken,
-      outputPoolToken
+      outputPoolToken,
+      mapping?.get(inputPoolToken.addr.toString()),
+      mapping?.get(outputPoolToken.addr.toString())
     );
 
     const quoteParams: QuotePoolParams = {
