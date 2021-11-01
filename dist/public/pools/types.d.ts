@@ -1,3 +1,4 @@
+import { AccountInfo } from "@solana/spl-token";
 import { Keypair, PublicKey } from "@solana/web3.js";
 import Decimal from "decimal.js";
 import { OrcaU64 } from "..";
@@ -55,7 +56,8 @@ export declare type OrcaPool = {
   getQuote: (
     inputToken: OrcaToken,
     inputAmount: Decimal | OrcaU64,
-    slippage?: Decimal
+    slippage?: Decimal,
+    mapping?: Map<string, AccountInfo>
   ) => Promise<Quote>;
   /**
    * Perform a swap from the input type to the other token in the pool.

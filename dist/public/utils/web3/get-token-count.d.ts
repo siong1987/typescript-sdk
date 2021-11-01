@@ -1,4 +1,4 @@
-import { u64 } from "@solana/spl-token";
+import { AccountInfo, u64 } from "@solana/spl-token";
 import { Connection } from "@solana/web3.js";
 import { OrcaPoolToken } from "../..";
 import { OrcaPoolParams } from "../../../model/orca/pool/pool-types";
@@ -10,5 +10,7 @@ export declare function getTokenCount(
   connection: Connection,
   poolParams: OrcaPoolParams,
   inputPoolToken: OrcaPoolToken,
-  outputPoolToken: OrcaPoolToken
+  outputPoolToken: OrcaPoolToken,
+  inputAccountInfo?: AccountInfo,
+  outputAccountInfo?: AccountInfo
 ): Promise<PoolTokenCount>;

@@ -1,3 +1,4 @@
+import { AccountInfo } from "@solana/spl-token";
 import { Connection, PublicKey, Keypair } from "@solana/web3.js";
 import Decimal from "decimal.js";
 import {
@@ -23,7 +24,8 @@ export declare class OrcaPoolImpl implements OrcaPool {
   getQuote(
     inputToken: OrcaToken,
     inputAmount: Decimal | OrcaU64,
-    slippage?: Decimal
+    slippage?: Decimal,
+    mapping?: Map<string, AccountInfo>
   ): Promise<Quote>;
   swap(
     owner: Keypair | PublicKey,

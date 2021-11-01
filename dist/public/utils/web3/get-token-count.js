@@ -12,13 +12,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTokenCount = void 0;
 const spl_token_1 = require("@solana/spl-token");
 const deserialize_account_1 = require("./deserialize-account");
-function getTokenCount(connection, poolParams, inputPoolToken, outputPoolToken) {
+function getTokenCount(connection, poolParams, inputPoolToken, outputPoolToken, inputAccountInfo, outputAccountInfo) {
     return __awaiter(this, void 0, void 0, function* () {
         if (poolParams.tokens[inputPoolToken.mint.toString()] == undefined) {
             throw new Error("Input token not part of pool");
         }
         if (poolParams.tokens[outputPoolToken.mint.toString()] == undefined) {
             throw new Error("Output token not part of pool");
+        }
+        if (inputAccountInfo && outputAccountInfo) {
+            return {
+                inputTokenCount: new spl_token_1.u64(inputAccountInfo.amount),
+                outputTokenCount: new spl_token_1.u64(outputAccountInfo.amount),
+            };
         }
         // TODO: Batch request?
         const accountInfos = yield Promise.all([

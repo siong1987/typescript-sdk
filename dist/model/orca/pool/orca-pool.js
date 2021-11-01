@@ -65,13 +65,13 @@ class OrcaPoolImpl {
             return public_1.OrcaU64.fromU64(amt, this.poolParams.poolTokenDecimals);
         });
     }
-    getQuote(inputToken, inputAmount, slippage) {
+    getQuote(inputToken, inputAmount, slippage, mapping) {
         return __awaiter(this, void 0, void 0, function* () {
             const slippageTolerance = slippage === undefined ? orca_defaults_1.defaultSlippagePercentage : public_1.Percentage.fromDecimal(slippage);
             const feeStructure = this.poolParams.feeStructure;
             const { inputPoolToken, outputPoolToken } = (0, public_1.getTokens)(this.poolParams, inputToken.mint.toString());
             const inputAmountU64 = public_1.U64Utils.toTokenU64(inputAmount, inputPoolToken, "inputAmount");
-            const poolTokenCount = yield (0, public_1.getTokenCount)(this.connection, this.poolParams, inputPoolToken, outputPoolToken);
+            const poolTokenCount = yield (0, public_1.getTokenCount)(this.connection, this.poolParams, inputPoolToken, outputPoolToken, mapping === null || mapping === void 0 ? void 0 : mapping.get(inputPoolToken.addr.toString()), mapping === null || mapping === void 0 ? void 0 : mapping.get(outputPoolToken.addr.toString()));
             const quoteParams = Object.assign(Object.assign({}, poolTokenCount), { inputToken: inputPoolToken, outputToken: outputPoolToken, feeStructure: feeStructure, slippageTolerance: slippageTolerance, lamportsPerSignature: 5000, amp: this.poolParams.amp !== undefined ? new spl_token_1.u64(this.poolParams.amp) : undefined });
             const quoteBuilder = quote_builder_1.QuoteBuilderFactory.getBuilder(this.poolParams.curveType);
             const quote = quoteBuilder === null || quoteBuilder === void 0 ? void 0 : quoteBuilder.buildQuote(quoteParams, inputAmountU64);
