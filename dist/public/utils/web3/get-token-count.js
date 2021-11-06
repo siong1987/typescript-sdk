@@ -26,10 +26,9 @@ function getTokenCount(connection, poolParams, inputPoolToken, outputPoolToken, 
                 outputTokenCount: new spl_token_1.u64(outputAccountInfo.amount),
             };
         }
-        // TODO: Batch request?
-        const accountInfos = yield Promise.all([
-            connection.getAccountInfo(inputPoolToken.addr),
-            connection.getAccountInfo(outputPoolToken.addr),
+        const accountInfos = yield connection.getMultipleAccountsInfo([
+            inputPoolToken.addr,
+            outputPoolToken.addr,
         ]);
         const tokens = accountInfos.map((info) => info != undefined ? (0, deserialize_account_1.deserializeAccount)(info.data) : undefined);
         const inputTokenAccount = tokens[0], outputTokenAccount = tokens[1];

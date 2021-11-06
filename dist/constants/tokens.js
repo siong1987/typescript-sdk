@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.wstethToken = exports.whethToken = exports.wldoToken = exports.whapiToken = exports.stsolToken = exports.psolToken = exports.msolToken = exports.wagToken = exports.usdtToken = exports.usdcToken = exports.tulipToken = exports.sypToken = exports.sunnyToken = exports.stepToken = exports.srmToken = exports.solToken = exports.socnToken = exports.snyToken = exports.slrsToken = exports.slimToken = exports.sbrToken = exports.samoToken = exports.ropeToken = exports.rayToken = exports.portToken = exports.polisToken = exports.paiToken = exports.oxyToken = exports.orcaToken = exports.ninjaToken = exports.mngoToken = exports.mndeToken = exports.merToken = exports.mediaToken = exports.mapsToken = exports.liqToken = exports.kuroToken = exports.kinToken = exports.grapeToken = exports.fttToken = exports.fidaToken = exports.ethToken = exports.copeToken = exports.btcToken = exports.bopToken = exports.atlasToken = exports.abrToken = void 0;
+exports.stsolToken = exports.scnsolToken = exports.psolToken = exports.msolToken = exports.wagToken = exports.usdtToken = exports.usdcToken = exports.tulipToken = exports.sypToken = exports.sunnyToken = exports.stepToken = exports.srmToken = exports.solToken = exports.snyToken = exports.slrsToken = exports.slndToken = exports.slimToken = exports.sbrToken = exports.samoToken = exports.ropeToken = exports.rayToken = exports.prtToken = exports.portToken = exports.polisToken = exports.paiToken = exports.oxyToken = exports.orcaToken = exports.ninjaToken = exports.mngoToken = exports.mndeToken = exports.merToken = exports.mediaToken = exports.mapsToken = exports.liqToken = exports.larixToken = exports.kuroToken = exports.kinToken = exports.jetToken = exports.ivnToken = exports.grapeToken = exports.fttToken = exports.fidaToken = exports.ethToken = exports.copeToken = exports.btcToken = exports.bopToken = exports.avaxToken = exports.auryToken = exports.atlasToken = exports.abrToken = void 0;
+exports.wstethToken = exports.whethToken = exports.wldoToken = exports.whapiToken = void 0;
 const web3_js_1 = require("@solana/web3.js");
 /**
  * The following content is auto-generated.
@@ -16,6 +17,18 @@ exports.atlasToken = Object.freeze({
     name: "Star Atlas",
     mint: new web3_js_1.PublicKey("ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx"),
     scale: 8,
+});
+exports.auryToken = Object.freeze({
+    tag: "AURY",
+    name: "Aurory",
+    mint: new web3_js_1.PublicKey("AURYydfxJib1ZkTir1Jn1J9ECYUtjb6rKQVmtYaixWPP"),
+    scale: 9,
+});
+exports.avaxToken = Object.freeze({
+    tag: "AVAX",
+    name: "Avalanche",
+    mint: new web3_js_1.PublicKey("AUrMpCDYYcPuHhyNX8gEEqbmDPFUpBpHrNW3vPeCFn5Z"),
+    scale: 9,
 });
 exports.bopToken = Object.freeze({
     tag: "BOP",
@@ -59,6 +72,18 @@ exports.grapeToken = Object.freeze({
     mint: new web3_js_1.PublicKey("8upjSpvjcdpuzhfR1zriwg5NXkwDruejqNE9WNbPRtyA"),
     scale: 6,
 });
+exports.ivnToken = Object.freeze({
+    tag: "IVN",
+    name: "Investin",
+    mint: new web3_js_1.PublicKey("iVNcrNE9BRZBC9Aqf753iZiZfbszeAVUoikgT9yvr2a"),
+    scale: 6,
+});
+exports.jetToken = Object.freeze({
+    tag: "JET",
+    name: "JET",
+    mint: new web3_js_1.PublicKey("JET6zMJWkCN9tpRT2v2jfAmm5VnQFDpUBCyaKojmGtz"),
+    scale: 9,
+});
 exports.kinToken = Object.freeze({
     tag: "KIN",
     name: "Kin",
@@ -69,6 +94,12 @@ exports.kuroToken = Object.freeze({
     tag: "KURO",
     name: "Kurobi",
     mint: new web3_js_1.PublicKey("2Kc38rfQ49DFaKHQaWbijkE7fcymUMLY5guUiUsDmFfn"),
+    scale: 6,
+});
+exports.larixToken = Object.freeze({
+    tag: "LARIX",
+    name: "Larix",
+    mint: new web3_js_1.PublicKey("Lrxqnh6ZHKbGy3dcrCED43nsoLkM1LTzU2jRfWe8qUC"),
     scale: 6,
 });
 exports.liqToken = Object.freeze({
@@ -143,6 +174,12 @@ exports.portToken = Object.freeze({
     mint: new web3_js_1.PublicKey("PoRTjZMPXb9T7dyU7tpLEZRQj7e6ssfAE62j2oQuc6y"),
     scale: 6,
 });
+exports.prtToken = Object.freeze({
+    tag: "PRT",
+    name: "Parrot Protocol",
+    mint: new web3_js_1.PublicKey("PRT88RkA4Kg5z7pKnezeNH4mafTvtQdfFgpQTGRjz44"),
+    scale: 6,
+});
 exports.rayToken = Object.freeze({
     tag: "RAY",
     name: "Raydium",
@@ -173,6 +210,12 @@ exports.slimToken = Object.freeze({
     mint: new web3_js_1.PublicKey("xxxxa1sKNGwFtw2kFn8XauW9xq8hBZ5kVtcSesTT9fW"),
     scale: 6,
 });
+exports.slndToken = Object.freeze({
+    tag: "SLND",
+    name: "Solend",
+    mint: new web3_js_1.PublicKey("SLNDpmoWTVADgEdndyvWzroNL7zSi1dF9PC3xHGtPwp"),
+    scale: 6,
+});
 exports.slrsToken = Object.freeze({
     tag: "SLRS",
     name: "Solrise Finance",
@@ -184,12 +227,6 @@ exports.snyToken = Object.freeze({
     name: "SNY",
     mint: new web3_js_1.PublicKey("4dmKkXNHdgYsXqBHCuMikNQWwVomZURhYvkkX5c4pQ7y"),
     scale: 6,
-});
-exports.socnToken = Object.freeze({
-    tag: "SOCN",
-    name: "Socean",
-    mint: new web3_js_1.PublicKey("5oVNBeEEQvYi1cX3ir8Dx5n1P7pdxydbGF2X4TxVusJm"),
-    scale: 9,
 });
 exports.solToken = Object.freeze({
     tag: "SOL",
@@ -223,7 +260,7 @@ exports.sypToken = Object.freeze({
 });
 exports.tulipToken = Object.freeze({
     tag: "TULIP",
-    name: "SolFarm",
+    name: "Tulip Protocol",
     mint: new web3_js_1.PublicKey("TuLipcqtGVXP9XR62wM8WWCm6a9vhLs7T1uoWBk6FDs"),
     scale: 6,
 });
@@ -255,6 +292,12 @@ exports.psolToken = Object.freeze({
     tag: "pSOL",
     name: "pSOL",
     mint: new web3_js_1.PublicKey("9EaLkQrbjmbbuZG9Wdpo8qfNUEjHATJFSycEmw6f1rGX"),
+    scale: 9,
+});
+exports.scnsolToken = Object.freeze({
+    tag: "scnSOL",
+    name: "Socean Staked Sol",
+    mint: new web3_js_1.PublicKey("5oVNBeEEQvYi1cX3ir8Dx5n1P7pdxydbGF2X4TxVusJm"),
     scale: 9,
 });
 exports.stsolToken = Object.freeze({

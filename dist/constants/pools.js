@@ -19,8 +19,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.stsolWldoPool = exports.sypUsdcPool = exports.stsolWstethPool = exports.mngoUsdcPool = exports.tulipUsdcPool = exports.mediaUsdcPool = exports.kuroUsdcPool = exports.abrUsdcPool = exports.grapeUsdcPool = exports.sunnyUsdcPool = exports.copeUsdcPool = exports.whapiUsdcPool = exports.slimUsdcPool = exports.ninjaSolPool = exports.samoUsdcPool = exports.bopUsdcPool = exports.polisUsdcPool = exports.atlasUsdcPool = exports.socnSolPool = exports.orcaMsolPool = exports.orcaPaiPool = exports.msolSolPool = exports.psolUsdcPool = exports.socnUsdcPool = exports.sbrUsdcPool = exports.portUsdcPool = exports.slrsUsdcPool = exports.msolUsdcPool = exports.snyUsdcPool = exports.liqUsdcPool = exports.samoSolPool = exports.kinSolPool = exports.orcaUsdcPool = exports.orcaSolPool = exports.usdcUsdtPool = exports.mapsSolPool = exports.fidaSolPool = exports.merSolPool = exports.btcSolPool = exports.oxySolPool = exports.copeSolPool = exports.fttSolPool = exports.srmSolPool = exports.stepSolPool = exports.ropeSolPool = exports.raySolPool = exports.ethUsdcPool = exports.ethSolPool = exports.solUsdtPool = exports.solUsdcPool = void 0;
-exports.orcaPoolConfigs = exports.wagUsdcPool = exports.mndeMsolPool = exports.whethUsdcPool = exports.whethSolPool = void 0;
+exports.stsolWldoPool = exports.sypUsdcPool = exports.stsolWstethPool = exports.mngoUsdcPool = exports.tulipUsdcPool = exports.mediaUsdcPool = exports.kuroUsdcPool = exports.abrUsdcPool = exports.grapeUsdcPool = exports.sunnyUsdcPool = exports.copeUsdcPool = exports.whapiUsdcPool = exports.slimUsdcPool = exports.ninjaSolPool = exports.samoUsdcPool = exports.bopUsdcPool = exports.polisUsdcPool = exports.atlasUsdcPool = exports.scnsolSolPool = exports.orcaMsolPool = exports.orcaPaiPool = exports.msolSolPool = exports.psolUsdcPool = exports.scnsolUsdcPool = exports.sbrUsdcPool = exports.portUsdcPool = exports.slrsUsdcPool = exports.msolUsdcPool = exports.snyUsdcPool = exports.liqUsdcPool = exports.samoSolPool = exports.kinSolPool = exports.orcaUsdcPool = exports.orcaSolPool = exports.usdcUsdtPool = exports.mapsSolPool = exports.fidaSolPool = exports.merSolPool = exports.btcSolPool = exports.oxySolPool = exports.copeSolPool = exports.fttSolPool = exports.srmSolPool = exports.stepSolPool = exports.ropeSolPool = exports.raySolPool = exports.ethUsdcPool = exports.ethSolPool = exports.solUsdtPool = exports.solUsdcPool = void 0;
+exports.orcaPoolConfigs = exports.slndUsdcPool = exports.rayUsdcPool = exports.fttUsdcPool = exports.avaxUsdcPool = exports.auryUsdcPool = exports.wstethUsdcPool = exports.stsolUsdcPool = exports.jetUsdcPool = exports.prtUsdcPool = exports.larixUsdcPool = exports.ivnSolPool = exports.btcMsolPool = exports.msolWhethPool = exports.msolUsdtPool = exports.wagUsdcPool = exports.mndeMsolPool = exports.whethUsdcPool = exports.whethSolPool = void 0;
 const web3_js_1 = require("@solana/web3.js");
 const pool_types_1 = require("../model/orca/pool/pool-types");
 const percentage_1 = require("../public/utils/models/percentage");
@@ -497,16 +497,16 @@ exports.sbrUsdcPool = Object.freeze({
         ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
     },
 });
-exports.socnUsdcPool = Object.freeze({
+exports.scnsolUsdcPool = Object.freeze({
     address: new web3_js_1.PublicKey("6Gh36sNXrGWYiWr999d9iZtqgnipJbWuBohyHBN1cJpS"),
     nonce: 255,
     authority: new web3_js_1.PublicKey("GXWEpRURaQZ9E62Q23EreTUfBy4hfemXgWFUWcg7YFgv"),
     poolTokenMint: new web3_js_1.PublicKey("Dkr8B675PGnNwEr9vTKXznjjHke5454EQdz3iaSbparB"),
     poolTokenDecimals: 6,
     feeAccount: new web3_js_1.PublicKey("HsC1Jo38jK3EpoNAkxfoUJhQVPa28anewZpLfeouUNk7"),
-    tokenIds: [Tokens.socnToken.mint.toString(), Tokens.usdcToken.mint.toString()],
+    tokenIds: [Tokens.scnsolToken.mint.toString(), Tokens.usdcToken.mint.toString()],
     tokens: {
-        [Tokens.socnToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.socnToken), { addr: new web3_js_1.PublicKey("7xs9QsrxQDVoWQ8LQ8VsVjfPKBrPGjvg8ZhaLnU1i2VR") }),
+        [Tokens.scnsolToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.scnsolToken), { addr: new web3_js_1.PublicKey("7xs9QsrxQDVoWQ8LQ8VsVjfPKBrPGjvg8ZhaLnU1i2VR") }),
         [Tokens.usdcToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.usdcToken), { addr: new web3_js_1.PublicKey("FZFJK64Fk1t619zmVPqCx8Uy29zJ3WuvjWitCQuxXRo3") }),
     },
     curveType: pool_types_1.CurveType.ConstantProduct,
@@ -588,16 +588,16 @@ exports.orcaMsolPool = Object.freeze({
         ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
     },
 });
-exports.socnSolPool = Object.freeze({
+exports.scnsolSolPool = Object.freeze({
     address: new web3_js_1.PublicKey("2q6UMko5kTnv866W9MTeAFau94pLpsdeNjDdSYSgZUXr"),
     nonce: 255,
     authority: new web3_js_1.PublicKey("Gyd77CwV23qq937x9UDa4TDkxEeQF9tp8ifotYxqW3Kd"),
     poolTokenMint: new web3_js_1.PublicKey("APNpzQvR91v1THbsAyG3HHrUEwvexWYeNCFLQuVnxgMc"),
     poolTokenDecimals: 6,
     feeAccount: new web3_js_1.PublicKey("42Xzazs9EvjtidvEDrj3JXbDtf6fpTq5XHh96mPctvBV"),
-    tokenIds: [Tokens.socnToken.mint.toString(), Tokens.solToken.mint.toString()],
+    tokenIds: [Tokens.scnsolToken.mint.toString(), Tokens.solToken.mint.toString()],
     tokens: {
-        [Tokens.socnToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.socnToken), { addr: new web3_js_1.PublicKey("C8DRXUqxXtUgvgBR7BPAmy6tnRJYgVjG27VU44wWDMNV") }),
+        [Tokens.scnsolToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.scnsolToken), { addr: new web3_js_1.PublicKey("C8DRXUqxXtUgvgBR7BPAmy6tnRJYgVjG27VU44wWDMNV") }),
         [Tokens.solToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.solToken), { addr: new web3_js_1.PublicKey("DzdxH5qJ68PiM1p5o6PbPLPpDj8m1ZshcaMFATcxDZix") }),
     },
     curveType: pool_types_1.CurveType.Stable,
@@ -1003,6 +1003,258 @@ exports.wagUsdcPool = Object.freeze({
         ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
     },
 });
+exports.msolUsdtPool = Object.freeze({
+    address: new web3_js_1.PublicKey("Afofkb7JTc32rdpqiyc3RDmGF5s9N6W1ujcdYVfGZ5Je"),
+    nonce: 251,
+    authority: new web3_js_1.PublicKey("8vrC1FAnW6hQMwJuU5waZdRrBbDJTULqjpdc4GjDtKR6"),
+    poolTokenMint: new web3_js_1.PublicKey("9cMWe4UYRPGAUUsTkjShJWVM7bk8DUBgxtwwH8asFJoV"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("7GPvi21QbwMyBoXU5Zqf8VhnuEh7VH4A1SRPgHJ36eE7"),
+    tokenIds: [Tokens.msolToken.mint.toString(), Tokens.usdtToken.mint.toString()],
+    tokens: {
+        [Tokens.msolToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.msolToken), { addr: new web3_js_1.PublicKey("RTXKRxghfWJpE344UG7UhKnCwN2Gyv6KnNSTFDnaASF") }),
+        [Tokens.usdtToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.usdtToken), { addr: new web3_js_1.PublicKey("J15KntYr6iout4ce2kcD2QEdkVbLN4EHHFLfCtke3f6Y") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
+exports.msolWhethPool = Object.freeze({
+    address: new web3_js_1.PublicKey("A71DQffTzgxBSzXjPL3tmf8XXTNtS5mR2D78Y8rmV2hk"),
+    nonce: 250,
+    authority: new web3_js_1.PublicKey("FPWpe7QEQnDMivnHksQW2uvcw9tvX1oxejKBX136WRkr"),
+    poolTokenMint: new web3_js_1.PublicKey("5qoTq3qC4U7vFxo3iCzbXcaD1UEmDeCD63Dsuoct71oV"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("FSqUYVzF3XZzLcnj132eT6ed3bK95G1yG4MazcHZi99Q"),
+    tokenIds: [Tokens.msolToken.mint.toString(), Tokens.whethToken.mint.toString()],
+    tokens: {
+        [Tokens.msolToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.msolToken), { addr: new web3_js_1.PublicKey("Fcp5u8bL3V24MXjA4noSfMpcEAP2vSj1WTaA1ZNxACZL") }),
+        [Tokens.whethToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.whethToken), { addr: new web3_js_1.PublicKey("DuBCBX3y2FjDWUn2ncK5EKQh229JiJ7HTCjYJhNC87K8") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
+exports.btcMsolPool = Object.freeze({
+    address: new web3_js_1.PublicKey("8DRw5wQE1pyg6RB1UwypGNFgb2Pzp2hpyDDNwo76Lcc8"),
+    nonce: 255,
+    authority: new web3_js_1.PublicKey("3X1aLdyvcQNc8TvBMPiucMsRCnGMBnGsjJHpZEyCf3pn"),
+    poolTokenMint: new web3_js_1.PublicKey("8nKJ4z9FSw6wrVZKASqBiS9DS1CiNsRnqwCCKVQjqdkB"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("AqiLHbUAy4UWWKGVVgbHsaUVCMg1zemNkgsYBPSirT92"),
+    tokenIds: [Tokens.btcToken.mint.toString(), Tokens.msolToken.mint.toString()],
+    tokens: {
+        [Tokens.btcToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.btcToken), { addr: new web3_js_1.PublicKey("6D3sxC6yEe84FUnF5Kpbgx6gN57N9poJCKAtrCeCWdJo") }),
+        [Tokens.msolToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.msolToken), { addr: new web3_js_1.PublicKey("EPoVJLhi9QtVPVo8n31M5k5Knvb48j8zbYyRrUbrHwC5") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
+exports.ivnSolPool = Object.freeze({
+    address: new web3_js_1.PublicKey("CFCivUWXBuULVNfJezj1fAhX6hdwVFi2BsCtpu6m96bR"),
+    nonce: 255,
+    authority: new web3_js_1.PublicKey("JGhNs5r7YNnJokzzXZWE3REKV8x4GiUvn2xSg7XGg59"),
+    poolTokenMint: new web3_js_1.PublicKey("DfgCnzaiTXfPkAH1C1Z441b5MzjjTCEh134ioxqRZxYf"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("HwwgrSjJGFBtRN8h2daWnVLBciwoo79wNeKi6b5SZmE2"),
+    tokenIds: [Tokens.ivnToken.mint.toString(), Tokens.solToken.mint.toString()],
+    tokens: {
+        [Tokens.ivnToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.ivnToken), { addr: new web3_js_1.PublicKey("C5yDeB3jBz5yZPa6FgP6b7HNoFxLP63Pyzpaosnkikis") }),
+        [Tokens.solToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.solToken), { addr: new web3_js_1.PublicKey("CCm846T6xj9VAhSAifuUJAXYCR3kaGp5KqhXFHCaeWUh") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
+exports.larixUsdcPool = Object.freeze({
+    address: new web3_js_1.PublicKey("DaNULZAv2VyLk75pW3QD5szVzx5dT6iNvoih94Bttqf5"),
+    nonce: 255,
+    authority: new web3_js_1.PublicKey("FUVkG7fM3i8T49qV7WsJd68rBaYKvqTkAQCdftqTWWNj"),
+    poolTokenMint: new web3_js_1.PublicKey("8sfThep3io4gvcGeuoAg1Rs8GDwKJjtcdAFHqQSSNAVE"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("AVb9Bvu4rjFYNCHygEnAYCjwnkgtC8C6UmJ7at3dsfdz"),
+    tokenIds: [Tokens.larixToken.mint.toString(), Tokens.usdcToken.mint.toString()],
+    tokens: {
+        [Tokens.larixToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.larixToken), { addr: new web3_js_1.PublicKey("AAjjSJsZM3AKK4h9cbGTHkquEZ2fWjgo9A9Pmrj2ynTH") }),
+        [Tokens.usdcToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.usdcToken), { addr: new web3_js_1.PublicKey("82Fs8dSpMxPPfN1ULsXGFREHWz3JizREpTxwz2MaZ1n1") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
+exports.prtUsdcPool = Object.freeze({
+    address: new web3_js_1.PublicKey("CRm5uRBsVmUVHVqKfCCvCUX1RLUkjfcBWAeMQ5D9VuCM"),
+    nonce: 255,
+    authority: new web3_js_1.PublicKey("A9eqdCXYys7jeoroMFEnkGLoYLa2q5gGbg8RSKHkR2ne"),
+    poolTokenMint: new web3_js_1.PublicKey("6jCERp5hKj37PCXP3VTjCDJeoPuSpnMDMz5A6jWQv3yS"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("FHVidN2ZdGnVaCjYwLjLXrimPbVsaqsUEEiGcVZ6WAPq"),
+    tokenIds: [Tokens.prtToken.mint.toString(), Tokens.usdcToken.mint.toString()],
+    tokens: {
+        [Tokens.prtToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.prtToken), { addr: new web3_js_1.PublicKey("3oL2GjsUnQLjHw77p78CsRr7t94AVrtsCnW5uf6NYQ3g") }),
+        [Tokens.usdcToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.usdcToken), { addr: new web3_js_1.PublicKey("2EiVwvsH5cvyk4W243zKoywkaEQb9Bwe9WGphRgBSqaP") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
+exports.jetUsdcPool = Object.freeze({
+    address: new web3_js_1.PublicKey("ErWwp9HKjk5ZPLDt8SrHKH5PvSKTwFDdFo5E3zDuE5Be"),
+    nonce: 253,
+    authority: new web3_js_1.PublicKey("GYY1t5d4pZnJC4rMXGY9yKMyCzLqxRqbtSguD2KkxghH"),
+    poolTokenMint: new web3_js_1.PublicKey("GBijunwxa4Ni3JmYC6q6zgaVhSUJU6hVX5qTyJDRpNTc"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("6NhybmW42rdWj5TcobNKQT6JaZispgngcfTDrCsgVq4Q"),
+    tokenIds: [Tokens.jetToken.mint.toString(), Tokens.usdcToken.mint.toString()],
+    tokens: {
+        [Tokens.jetToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.jetToken), { addr: new web3_js_1.PublicKey("GEtZSc8188t2cCAv21UGCyjvxCeyU5Co99GtRtyTkpdh") }),
+        [Tokens.usdcToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.usdcToken), { addr: new web3_js_1.PublicKey("Bi95f8H7o7zHWuYysxDHEubPv4c3NhsHWhaesXJu91NC") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
+exports.stsolUsdcPool = Object.freeze({
+    address: new web3_js_1.PublicKey("EfK84vYEKT1PoTJr6fBVKFbyA7ZoftfPo2LQPAJG1exL"),
+    nonce: 252,
+    authority: new web3_js_1.PublicKey("8PSN1CQxfyZ7T4sM3HM3RAgF2Y6VCf4tKSc8xY73Tnq5"),
+    poolTokenMint: new web3_js_1.PublicKey("GtQ1NT7R5aaTiST7K6ZWdMhwDdFxsSFvVFhBo8vyHGAq"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("CJhL3UGesECFt6fvLB3csrGMuHf3M3G78pUzTopUiV8T"),
+    tokenIds: [Tokens.stsolToken.mint.toString(), Tokens.usdcToken.mint.toString()],
+    tokens: {
+        [Tokens.stsolToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.stsolToken), { addr: new web3_js_1.PublicKey("9SEBxqhP8sTAzmfiQfCPim1MqQXuDPb6fkGzJF7Z339i") }),
+        [Tokens.usdcToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.usdcToken), { addr: new web3_js_1.PublicKey("G45yhM5mZ5RXZpLxGWLk3PVzdAp33z8aH6F9mLW8fQj3") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
+exports.wstethUsdcPool = Object.freeze({
+    address: new web3_js_1.PublicKey("v51xWrRwmFVH6EKe8eZTjgK5E4uC2tzY5sVt5cHbrkG"),
+    nonce: 254,
+    authority: new web3_js_1.PublicKey("3Kk8rpjxpc9qv2pJPr1CbmyQqrTDPntpryXActLogQeD"),
+    poolTokenMint: new web3_js_1.PublicKey("5a6Y1ephcbKSoyLMQyD1JWbtqawCy8p2FtRL9v3zhaG5"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("ACKiRmbiMaPEc73pz4dVMuJGPaa74Vx9sfYADjnHuzvo"),
+    tokenIds: [Tokens.wstethToken.mint.toString(), Tokens.usdcToken.mint.toString()],
+    tokens: {
+        [Tokens.wstethToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.wstethToken), { addr: new web3_js_1.PublicKey("5c4tzhRVaCxpmu8o3HrEZ8PWBDKSR6QNkBdQrUo9oe3e") }),
+        [Tokens.usdcToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.usdcToken), { addr: new web3_js_1.PublicKey("AFNaWHH7ZGFjB7y7jmPM7jVs7QBAciffu7Z5tZidRHPR") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
+exports.auryUsdcPool = Object.freeze({
+    address: new web3_js_1.PublicKey("6HSguUukDH9zqJBm6oAAmFkg1WK9dJ5iLgnppTCM6jHm"),
+    nonce: 255,
+    authority: new web3_js_1.PublicKey("9T1koZp2PNJgspcx3G22yLiChBUfYzAjs2dhj2kgw2LZ"),
+    poolTokenMint: new web3_js_1.PublicKey("6mJqqT5TMgveDvxzBt3hrjGkPV5VAj7tacxFCT3GebXh"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("JCqbv7r3mtYhzruNFjc21X14fndDVBLMiaNQrsHVpWui"),
+    tokenIds: [Tokens.auryToken.mint.toString(), Tokens.usdcToken.mint.toString()],
+    tokens: {
+        [Tokens.auryToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.auryToken), { addr: new web3_js_1.PublicKey("413s6jiRbayD9didA4VnY8kQVgVBgkYNpYB2tyNf8sbh") }),
+        [Tokens.usdcToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.usdcToken), { addr: new web3_js_1.PublicKey("GdPeogNxRWAZtUj7ZHc7fUpBuGHJosdbukiT2krFtXm8") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
+exports.avaxUsdcPool = Object.freeze({
+    address: new web3_js_1.PublicKey("7c2CLgatf2TU36PgpS65WLmvWk94rmaHVf1Z1peZ7mcA"),
+    nonce: 251,
+    authority: new web3_js_1.PublicKey("Mq46N9EknnxHL9fRkJhS4Eg9YXRifHiWzFJTD11ePWC"),
+    poolTokenMint: new web3_js_1.PublicKey("Hmfrtmo93DpSDmVNLQKcBS5D1ia5JatiRSok9ososubz"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("7JH76Kw4dHyC5szRXkx6MFkJ3BEViodfNy15uFJst1cX"),
+    tokenIds: [Tokens.avaxToken.mint.toString(), Tokens.usdcToken.mint.toString()],
+    tokens: {
+        [Tokens.avaxToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.avaxToken), { addr: new web3_js_1.PublicKey("5rU6M2jAXQMSmgrsn14BPoVVhoBdCU6y5cP7XMjN4ZYy") }),
+        [Tokens.usdcToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.usdcToken), { addr: new web3_js_1.PublicKey("D28rzq246bcXBrYiCeALY86y8NwvCUmuJGNggvKsh4WR") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
+exports.fttUsdcPool = Object.freeze({
+    address: new web3_js_1.PublicKey("8npdwWX2BR39kcFLtTJABbcjNq7NWQvipfqxgsfk9mTX"),
+    nonce: 255,
+    authority: new web3_js_1.PublicKey("8zU13KiLb1e87skt4rf8q1LhamEKKecyu6Xxb4Hqnm7e"),
+    poolTokenMint: new web3_js_1.PublicKey("FwCombynV2fTVizxPCNA2oZKoWXLZgdJThjE4Xv9sjxc"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("C8D52rGuZcsBENhWtR9aqJVRU62cL7jyyEhxesKwc1k8"),
+    tokenIds: [Tokens.fttToken.mint.toString(), Tokens.usdcToken.mint.toString()],
+    tokens: {
+        [Tokens.fttToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.fttToken), { addr: new web3_js_1.PublicKey("SasuKsATA2ATrMfFfSJr86wAGVgdS69PkQT3jFASBB8") }),
+        [Tokens.usdcToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.usdcToken), { addr: new web3_js_1.PublicKey("3wADiuUqoakdoYYYxKqwoA4VN3uWZy5UwvLePox1mEsK") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
+exports.rayUsdcPool = Object.freeze({
+    address: new web3_js_1.PublicKey("2R2VhohRc5WoNHtRdwnjovAQaZRAmr1DE3QFW5jfgb6v"),
+    nonce: 252,
+    authority: new web3_js_1.PublicKey("9B9ZcYT8jDQ6XLe6gRLDCFv1zz3uHVKdbZT9DFhsYSQW"),
+    poolTokenMint: new web3_js_1.PublicKey("4cXw2MYj94TFBXLL73fEpMCr8DPrW68JvrV8mzWgktbD"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("HURhvCRsrwwR5TiG75Hn274WwL76kaKgjgC6n9h4FEHj"),
+    tokenIds: [Tokens.rayToken.mint.toString(), Tokens.usdcToken.mint.toString()],
+    tokens: {
+        [Tokens.rayToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.rayToken), { addr: new web3_js_1.PublicKey("9ASj9zDg7cT6wtvn4euSUiZte8yN2U3Tn6cTVZvMHbU7") }),
+        [Tokens.usdcToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.usdcToken), { addr: new web3_js_1.PublicKey("HGTxSWbb62nxk4oGkLkHUvrEzR5D4GKYRb8ZDcA2dpki") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
+exports.slndUsdcPool = Object.freeze({
+    address: new web3_js_1.PublicKey("GhosXH9yZPxqSyTHqJtXQt6w65YfiGjKXcEXciX1P3z8"),
+    nonce: 255,
+    authority: new web3_js_1.PublicKey("ChmSHndtXRsYnFjYA2F7yRRsnyZ8kCpxSogTsCUgCEsh"),
+    poolTokenMint: new web3_js_1.PublicKey("F59gkD7NnsdJbFKrRZsiBC8PAooN4c56T8QmahfW1iXN"),
+    poolTokenDecimals: 6,
+    feeAccount: new web3_js_1.PublicKey("GMipxN5pu6F6wwUrq6RhpqgcMjcKLTsnDTeNFCuUm5n7"),
+    tokenIds: [Tokens.slndToken.mint.toString(), Tokens.usdcToken.mint.toString()],
+    tokens: {
+        [Tokens.slndToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.slndToken), { addr: new web3_js_1.PublicKey("9RcdfprKxbTzp3erTJMwXKznNCLmbCUaKhibaTMXhToi") }),
+        [Tokens.usdcToken.mint.toString()]: Object.assign(Object.assign({}, Tokens.usdcToken), { addr: new web3_js_1.PublicKey("6wEh8r3Czc3nKkN6JXobShnLG7ZqA5Y5DREGzkirYR36") }),
+    },
+    curveType: pool_types_1.CurveType.ConstantProduct,
+    feeStructure: {
+        traderFee: percentage_1.Percentage.fromFraction(25, 10000),
+        ownerFee: percentage_1.Percentage.fromFraction(5, 10000),
+    },
+});
 /**
  * Mapping for OrcaPool parameters
  * Key: poolTokenMint : OrcaPoolParams
@@ -1034,12 +1286,12 @@ exports.orcaPoolConfigs = {
     AtB4nUmdyQfuWWJ9xAHw9xyVnJFfSjSuVWkiYan8y86w: exports.slrsUsdcPool,
     F8gPSpwVHj8FdAJAYULDuZBxFEJut87hUbARYYx3471w: exports.portUsdcPool,
     CS7fA5n4c2D82dUoHrYzS3gAqgqaoVSfgsr18kitp2xo: exports.sbrUsdcPool,
-    Dkr8B675PGnNwEr9vTKXznjjHke5454EQdz3iaSbparB: exports.socnUsdcPool,
+    Dkr8B675PGnNwEr9vTKXznjjHke5454EQdz3iaSbparB: exports.scnsolUsdcPool,
     C2YzN6MymD5HM2kPaH7bzcbqciyjfmpqyVaR3KA5V6z1: exports.psolUsdcPool,
     "29cdoMgu6MS2VXpcMo1sqRdWEzdUR9tjvoh8fcK8Z87R": exports.msolSolPool,
     C7TH2jEJJaxVwwuvkbcDGfHUiZvEkkeYjyAcdTMi5ujb: exports.orcaPaiPool,
     CVapmQn7HaU1yMDW3q6oUV4hx6XoYv54T4zfGXkuJqkA: exports.orcaMsolPool,
-    APNpzQvR91v1THbsAyG3HHrUEwvexWYeNCFLQuVnxgMc: exports.socnSolPool,
+    APNpzQvR91v1THbsAyG3HHrUEwvexWYeNCFLQuVnxgMc: exports.scnsolSolPool,
     FZ8x1LCRSPDeHBDoAc3Gc6Y7ETCynuHEr5q5YWV7uRCJ: exports.atlasUsdcPool,
     GteBdo9sqE7T41G8AJsaG9WHW48uXBwsLLznmu2TBdgy: exports.polisUsdcPool,
     "2gXDJZ7XAtQEtf4PRSQZKoq1WMuu1H44tQanbMA3YVpu": exports.bopUsdcPool,
@@ -1062,4 +1314,18 @@ exports.orcaPoolConfigs = {
     "7NPtjjAP7vhp4t5NCLyY4DY5rurvyc8cgZ2a2rYabRia": exports.whethUsdcPool,
     "5PHS5w6hQwFNnLz1jJFe7TVTxSQ98cDYC3akmiAoFMXs": exports.mndeMsolPool,
     Df6XNHMF3uRVZnz7LCEGiZVax6rXgz76owtVkBHEjSb6: exports.wagUsdcPool,
+    "9cMWe4UYRPGAUUsTkjShJWVM7bk8DUBgxtwwH8asFJoV": exports.msolUsdtPool,
+    "5qoTq3qC4U7vFxo3iCzbXcaD1UEmDeCD63Dsuoct71oV": exports.msolWhethPool,
+    "8nKJ4z9FSw6wrVZKASqBiS9DS1CiNsRnqwCCKVQjqdkB": exports.btcMsolPool,
+    DfgCnzaiTXfPkAH1C1Z441b5MzjjTCEh134ioxqRZxYf: exports.ivnSolPool,
+    "8sfThep3io4gvcGeuoAg1Rs8GDwKJjtcdAFHqQSSNAVE": exports.larixUsdcPool,
+    "6jCERp5hKj37PCXP3VTjCDJeoPuSpnMDMz5A6jWQv3yS": exports.prtUsdcPool,
+    GBijunwxa4Ni3JmYC6q6zgaVhSUJU6hVX5qTyJDRpNTc: exports.jetUsdcPool,
+    GtQ1NT7R5aaTiST7K6ZWdMhwDdFxsSFvVFhBo8vyHGAq: exports.stsolUsdcPool,
+    "5a6Y1ephcbKSoyLMQyD1JWbtqawCy8p2FtRL9v3zhaG5": exports.wstethUsdcPool,
+    "6mJqqT5TMgveDvxzBt3hrjGkPV5VAj7tacxFCT3GebXh": exports.auryUsdcPool,
+    Hmfrtmo93DpSDmVNLQKcBS5D1ia5JatiRSok9ososubz: exports.avaxUsdcPool,
+    FwCombynV2fTVizxPCNA2oZKoWXLZgdJThjE4Xv9sjxc: exports.fttUsdcPool,
+    "4cXw2MYj94TFBXLL73fEpMCr8DPrW68JvrV8mzWgktbD": exports.rayUsdcPool,
+    F59gkD7NnsdJbFKrRZsiBC8PAooN4c56T8QmahfW1iXN: exports.slndUsdcPool,
 };

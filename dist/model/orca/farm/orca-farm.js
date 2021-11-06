@@ -19,10 +19,14 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrcaFarmImpl = void 0;
 const aquafarm_1 = require("@orca-so/aquafarm");
 const spl_token_1 = require("@solana/spl-token");
+const decimal_js_1 = __importDefault(require("decimal.js"));
 const __1 = require("../../..");
 const public_1 = require("../../../public/");
 const farm_instructions_1 = require("../../../public/utils/web3/instructions/farm-instructions");
@@ -164,6 +168,20 @@ class OrcaFarmImpl {
                 .addInstruction(resolveRewardTokenInstructions)
                 .addInstruction(harvestRewardInstruction)
                 .build();
+        });
+    }
+    getDailyEmissions() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { address, rewardTokenDecimals } = this.farmParams;
+            const globalFarms = yield (0, aquafarm_1.fetchGlobalFarms)(this.connection, [address], __1.ORCA_FARM_ID);
+            if (!globalFarms) {
+                throw new Error("Failed to get globalFarms information");
+            }
+            const value = new decimal_js_1.default(globalFarms[0].emissionsPerSecondNumerator.toString())
+                .mul(60 * 60 * 24)
+                .div(globalFarms[0].emissionsPerSecondDenominator.toString())
+                .div(new decimal_js_1.default(10).pow(rewardTokenDecimals));
+            return __1.OrcaU64.fromDecimal(value, rewardTokenDecimals);
         });
     }
 }

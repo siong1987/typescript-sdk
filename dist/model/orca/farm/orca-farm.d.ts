@@ -19,4 +19,5 @@ export declare class OrcaFarmImpl implements OrcaFarm {
   ): Promise<TransactionPayload>;
   getHarvestableAmount(ownerPublicKey: PublicKey): Promise<OrcaU64>;
   harvest(owner: Keypair | PublicKey): Promise<TransactionPayload>;
+  getDailyEmissions(): Promise<OrcaU64>;
 }

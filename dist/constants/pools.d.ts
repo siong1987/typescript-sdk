@@ -28,12 +28,12 @@ export declare const msolUsdcPool: OrcaPoolParams;
 export declare const slrsUsdcPool: OrcaPoolParams;
 export declare const portUsdcPool: OrcaPoolParams;
 export declare const sbrUsdcPool: OrcaPoolParams;
-export declare const socnUsdcPool: OrcaPoolParams;
+export declare const scnsolUsdcPool: OrcaPoolParams;
 export declare const psolUsdcPool: OrcaPoolParams;
 export declare const msolSolPool: OrcaPoolParams;
 export declare const orcaPaiPool: OrcaPoolParams;
 export declare const orcaMsolPool: OrcaPoolParams;
-export declare const socnSolPool: OrcaPoolParams;
+export declare const scnsolSolPool: OrcaPoolParams;
 export declare const atlasUsdcPool: OrcaPoolParams;
 export declare const polisUsdcPool: OrcaPoolParams;
 export declare const bopUsdcPool: OrcaPoolParams;
@@ -56,6 +56,20 @@ export declare const whethSolPool: OrcaPoolParams;
 export declare const whethUsdcPool: OrcaPoolParams;
 export declare const mndeMsolPool: OrcaPoolParams;
 export declare const wagUsdcPool: OrcaPoolParams;
+export declare const msolUsdtPool: OrcaPoolParams;
+export declare const msolWhethPool: OrcaPoolParams;
+export declare const btcMsolPool: OrcaPoolParams;
+export declare const ivnSolPool: OrcaPoolParams;
+export declare const larixUsdcPool: OrcaPoolParams;
+export declare const prtUsdcPool: OrcaPoolParams;
+export declare const jetUsdcPool: OrcaPoolParams;
+export declare const stsolUsdcPool: OrcaPoolParams;
+export declare const wstethUsdcPool: OrcaPoolParams;
+export declare const auryUsdcPool: OrcaPoolParams;
+export declare const avaxUsdcPool: OrcaPoolParams;
+export declare const fttUsdcPool: OrcaPoolParams;
+export declare const rayUsdcPool: OrcaPoolParams;
+export declare const slndUsdcPool: OrcaPoolParams;
 /**
  * Mapping for OrcaPool parameters
  * Key: poolTokenMint : OrcaPoolParams
