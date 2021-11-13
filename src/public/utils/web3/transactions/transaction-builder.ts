@@ -5,6 +5,7 @@ import {
   Transaction,
   TransactionCtorFields,
   Signer,
+  Keypair,
   TransactionInstruction,
   Blockhash,
 } from "@solana/web3.js";
@@ -30,9 +31,16 @@ export class TransactionBuilder {
     return this;
   }
 
-  async build(blockhash: Blockhash): Promise<TransactionPayload> {
+  async build(blockhash?: Blockhash): Promise<TransactionPayload> {
+    let recentBlockHash;
+    if (!blockhash) {
+      recentBlockHash = (await this.connection.getRecentBlockhash("singleGossip")).blockhash;
+    } else {
+      recentBlockHash = blockhash;
+    }
+
     const txFields: TransactionCtorFields = {
-      recentBlockhash: blockhash,
+      recentBlockhash: recentBlockHash,
       feePayer: this.feePayer,
     };
 

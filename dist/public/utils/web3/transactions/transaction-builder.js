@@ -22,9 +22,15 @@ class TransactionBuilder {
         this.instructions.push(instruction);
         return this;
     }
-    build() {
+    build(blockhash) {
         return __awaiter(this, void 0, void 0, function* () {
-            const recentBlockHash = (yield this.connection.getRecentBlockhash("singleGossip")).blockhash;
+            let recentBlockHash;
+            if (!blockhash) {
+                recentBlockHash = (yield this.connection.getRecentBlockhash("singleGossip")).blockhash;
+            }
+            else {
+                recentBlockHash = blockhash;
+            }
             const txFields = {
                 recentBlockhash: recentBlockHash,
                 feePayer: this.feePayer,
